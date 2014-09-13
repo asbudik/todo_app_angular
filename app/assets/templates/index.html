@@ -1,0 +1,23 @@
+<form action="javascript:void(0);" ng-submit="addTodo()">
+  <input type="text" ng-model="newTodo.title" placeholder="Title" required>
+  <input type="text" ng-model="newTodo.description" placeholder="Description" required>
+  <button>Add Task</button>
+</form>
+
+<ul ng-repeat="task in todos | orderBy:'-created_at'">
+  <p> Task #{{task.id}}
+    <li> {{task.title}}</li>
+    <li> {{task.description}}</li>
+  </p>
+
+  <button ng-click="deleteTodo(task)">Delete Task</button>
+
+  <input type="checkbox" ng-model="checked" id="editing{{$index}}"><label for="editing{{$index}}">Edit</label>
+
+  <form ng-submit="editTodo(task)" ng-show="checked">
+    <input type="text" ng-model="task.title">
+    <input type="text" ng-model="task.description">
+    <button>Edit Task</button>
+  </form>
+
+</ul>
