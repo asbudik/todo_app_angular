@@ -32,7 +32,7 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :description)
+    params.require(:todo).permit(:title, :description, :complete)
   end
 
   def render_main_layout_if_format_html

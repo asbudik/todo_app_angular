@@ -1,23 +1,52 @@
-<form action="javascript:void(0);" ng-submit="addTodo()">
-  <input type="text" ng-model="newTodo.title" placeholder="Title" required>
-  <input type="text" ng-model="newTodo.description" placeholder="Description" required>
-  <button>Add Task</button>
-</form>
+<div class="row">
+  <div class=" col-sm-5">
+  <h1 class="title">NexTask</h1>
+  <h4 class="subtitle">NexT on the list</h4>
+    <div class="form-div">
+    <form action="javascript:void(0);" ng-submit="addTodo()">
+      <input class="form-control" type="text" ng-model="newTodo.title" placeholder="Title" required>
+      <div class="form-group">
+      <textarea class="form-control" type="text" ng-model="newTodo.description" placeholder="Description" required></textarea>
+      </div>
+      <div class="form-group">
+      <button class="form-control btn btn-default btn-md">Add Task</button>
+      </div>
+    </form>
+    </div>
+  </div>
+  <div class="col-sm-offset-1 col-sm-5">
+    <div class="todocontainer">
+    <span ng-repeat="task in todos | orderBy:'-created_at'">
+      <div class="todoitem" ng-dblclick="editButton()" ng-class="{'complete': task.complete == 1, 'not-complete': task.complete != 1, 'showopacitycomplete': checked == true && task.complete == 1, 'showopacityincomplete': checked == true && task.complete != 1}"> 
+        <div ng-click="focusTask()">
+        <span class="text">
+          <span class="taskid"><li> Task #{{task.id}} </li></span>
+          <li> <strong>{{task.title}}</strong></li>
+          <li> {{task.description}}</li>
+        </span>
 
-<ul ng-repeat="task in todos | orderBy:'-created_at'">
-  <p> Task #{{task.id}}
-    <li> {{task.title}}</li>
-    <li> {{task.description}}</li>
-  </p>
+        <div class="buttons">
+          <button class="btnaction btn btn-default btn-sm" ng-click="deleteTodo(task)">Delete Task</button>
 
-  <button ng-click="deleteTodo(task)">Delete Task</button>
+          <button class="btnaction btn btn-default btn-sm" ng-click="checkButton()" id="editing{{$index}}">{{notice}}</button>
+          <span class="completebox" ng-hide="completecheckbox{{task.id}}">
+            <input type="checkbox" ng-model="task.complete" ng-click="completeTodo(task)" id="completed{{$index}}"><label class="completelabel" for="completed{{$index}}">Complete</label>
+          </span>
+        </div>
+        </div>
+        <form class="updateform" ng-submit="editTodo(task)" ng-show="checked">
+          <input class="form-control" type="text" ng-model="task.title">
+          <div class="form-group">
+          <textarea class="form-control" type="text" ng-model="task.description"></textarea>
+          </div>
+          <div class="form-group">
+          <button class="form-control btn btn-default btn-sm">Update</button>
+          </div>
+        </form>
+      </div>
 
-  <input type="checkbox" ng-model="checked" id="editing{{$index}}"><label for="editing{{$index}}">Edit</label>
-
-  <form ng-submit="editTodo(task)" ng-show="checked">
-    <input type="text" ng-model="task.title">
-    <input type="text" ng-model="task.description">
-    <button>Edit Task</button>
-  </form>
-
-</ul>
+    </span>
+    </div>
+  </div>
+  </div>
+</div>

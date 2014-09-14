@@ -13,3 +13,93 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  background-image: url('backgroundapp.png');
+ }
+.not-complete {
+  background-color: rgba(245,240, 205, .4);
+}
+.complete {
+  background-color: rgba(0,240,0, .6);
+}
+
+li {
+  list-style-type: none;
+}
+.updateform {
+  margin-top: 15px;
+}
+.fade {
+  height: 150px;
+}
+.buttons {
+}
+.hidebuttons {
+  display: none;
+}
+.showbuttons {
+  display: inline;
+}
+.taskid {
+  float: right;
+}
+.todoitem {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 3px;
+  box-shadow: 1px 0px 1px #A67D3D, -1px 0px 1px #A67D3D;
+}
+.row {
+  position: relative;
+  top: 70px;
+}
+.title {
+  font-size: 60px;
+  position: relative;
+  top: -30px;
+}
+.completelabel {
+  margin-left: 5px;
+  position: relative;
+  top: 1px;
+}
+.subtitle {
+  position: relative;
+  font-size: 20px;
+  left: 2px;
+  color: grey;
+  top: -50px;
+}
+.todocontainer {
+  background-color: #FEE8D6;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px #E7C6A5;
+  margin-bottom: 40px;
+}
+.btnaction {
+  margin-top: 10px;
+}
+.completebox {
+  float: right;
+}
+.showopacitycomplete {
+  background-color: rgba(20,255,0, .9);
+
+}
+.showopacityincomplete {
+  background-color: rgba(255,255, 220, 1);
+
+}
+.form-div {
+  margin: 0 auto;
+}
+html {
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+}
