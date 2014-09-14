@@ -17,7 +17,7 @@
   background-image: url('backgroundapp.png');
  }
 .not-complete {
-  background-color: rgba(225,220, 205, .4);
+  background-color: rgba(225,220, 205, .2);
 }
 .complete {
   background-color: rgba(0,240,0, .6);
@@ -71,8 +71,8 @@ li {
   top: -50px;
 }
 .todocontainer {
-  background-color: #FEE8D6;
-  padding: 5px;
+  background-color: #f5f5dc;
+  padding: 1px;
   border-radius: 3px;
   box-shadow: 2px 2px 2px #E7C6A5;
   margin-bottom: 40px;
